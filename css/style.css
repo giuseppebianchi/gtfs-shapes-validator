@@ -1,0 +1,324 @@
+body {
+  padding: 0;
+}
+
+/* Bootstrap Floating Labels */
+:root {
+  --input-padding-x:.75rem;
+  --input-padding-y:.75rem;
+}
+
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  height: calc(3rem);
+}
+
+.form-label-group > input {
+  padding: var(--input-padding-y) var(--input-padding-x);
+}
+.form-label-group > label {
+  padding: var(--input-padding-y) var(--input-padding-x);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  /* Override default `<label>` margin */
+  line-height: 1.5;
+  color: #495057;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  transition: all 0.1s ease-in-out;
+}
+.form-label-group input::-webkit-input-placeholder, .form-label-group input:-ms-input-placeholder, .form-label-group input::-ms-input-placeholder, .form-label-group input::-moz-placeholder, .form-label-group input::placeholder {
+  color: transparent;
+}
+.form-label-group input:not(:placeholder-shown) {
+  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+  padding-bottom: calc(var(--input-padding-y) / 3);
+}
+.form-label-group input:not(:placeholder-shown) ~ label {
+  padding-top: calc(var(--input-padding-y) / 3);
+  padding-bottom: calc(var(--input-padding-y) / 3);
+  font-size: 12px;
+  color: #777;
+}
+
+/* My Style */
+.btn-success {
+  background: #d4edda;
+  color: #28a745;
+}
+
+span.btn-success:hover {
+  background: #d4edda;
+  color: #28a745;
+  border-color: #28a745;
+}
+span.btn-danger:hover {
+  color: inherit;
+  background: inherit;
+}
+
+.btn-shape-validator {
+  background-color: #576d7e;
+  color: #fff;
+}
+
+.btn-shape-validator-empty {
+  border: 2px solid #576d7e;
+  color: #576d7e;
+}
+
+.btn-shape-validator:hover {
+  opacity: 0.8;
+  color: #fff;
+}
+
+.navbar {
+  background-color: #576d7e;
+}
+
+.featurette-item {
+  display: flex;
+  align-items: center;
+}
+.featurette-item > img {
+  margin-right: 15px;
+}
+.featurette-item h2 {
+  margin: 20px 0 5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.3em;
+}
+
+.featurette-image {
+  border-radius: 10px;
+}
+
+#map {
+  height: 500px;
+  width: 100%;
+  margin: 0 0 2rem;
+}
+
+#shape-settings-form img {
+  width: 100%;
+  max-width: 300px;
+  margin: 10% auto 0;
+  display: block;
+  padding-right: 10%;
+}
+#shape-settings-form .featurette-heading {
+  margin-top: 2rem;
+}
+#shape-settings-form #shape-file-input-label {
+  padding: 1rem 3rem;
+  margin: 10px 10px 10px 0;
+}
+#shape-settings-form #shape-file-input-label:hover {
+  background: #576d7e;
+  color: #fff;
+  box-shadow: 0 0 3px 1px #b0b7bd;
+}
+#shape-settings-form h6 {
+  /*padding-left: 10px;*/
+}
+
+#results-section {
+  display: none;
+}
+
+.form-section {
+  padding: 2rem 0 6rem;
+}
+
+.steps-section {
+  background-color: #576d7e;
+  padding: 6rem 0;
+  color: #fff;
+  margin: 0 0 3rem;
+}
+
+.shape-image {
+  margin-left: -10px;
+}
+
+.error-input {
+  border: 1px solid red;
+}
+
+#shape-details {
+  display: none;
+}
+
+#shape-error-points {
+  display: none;
+}
+#shape-error-points .list-group {
+  max-height: 200px;
+  overflow-y: scroll;
+  border-radius: 5px;
+}
+
+#edit-shape {
+  display: none;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #576d7e;
+  box-shadow: none;
+  outline: none;
+}
+#edit-shape.editing:after {
+  content: "Save Changes";
+  padding: 0.35em 50% 0 0;
+  color: #576d7e;
+  background: #fff;
+  width: 150%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#cancel-edit-shape {
+  display: none;
+  color: #fff;
+}
+
+#fix-all-bad-shapes {
+  position: relative;
+  overflow: hidden;
+  box-shadow: none;
+  outline: none;
+}
+#fix-all-bad-shapes.fixing:before {
+  display: block !important;
+  content: "Fixing";
+  padding: 10% 50% 0 0;
+  background: #9ff0c7;
+  width: 150%;
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 20%, transparent 20%, transparent 40%, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 0.2) 60%, transparent 60%, transparent 80%, rgba(255, 255, 255, 0.2) 80%, rgba(255, 255, 255, 0.2));
+  animation: loading-button-animation 2s linear infinite;
+}
+#fix-all-bad-shapes.fixed:after {
+  cursor: default;
+  content: "All Fixed";
+  padding: 5% 50% 0 0;
+  background: #08b05b;
+  color: #fff;
+  width: 150%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+#smartfix-shape {
+  display: none;
+  position: relative;
+  overflow: hidden;
+}
+#smartfix-shape.fixed:after {
+  content: "Fixed";
+  padding: 5% 50% 0 0;
+  background: #08b05b;
+  width: 150%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.loading-button {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  border-color: #ddd;
+}
+.loading-button:before {
+  display: block !important;
+  content: "Parsing";
+  padding: 10% 50% 0 0;
+  background: #9ff0c7;
+  width: 150%;
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 20%, transparent 20%, transparent 40%, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 0.2) 60%, transparent 60%, transparent 80%, rgba(255, 255, 255, 0.2) 80%, rgba(255, 255, 255, 0.2));
+  animation: loading-button-animation 2s linear infinite;
+}
+.loading-button.btn-shape-validator:before {
+  content: "Validating";
+  background: #576d7e;
+}
+
+#shape-textarea {
+  width: 100%;
+  min-height: 200px;
+  height: 300px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1.2em;
+  color: #427593;
+  padding: 10px;
+}
+
+.shape-format-nav .shape-format-nav-item {
+  cursor: pointer;
+}
+
+.export-button {
+  position: relative;
+  overflow: hidden;
+}
+.export-button.exporting:before {
+  display: block !important;
+  content: "Download";
+  padding: 5% 50% 0 0;
+  background: #9ff0c7;
+  width: 150%;
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 20%, transparent 20%, transparent 40%, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 0.2) 60%, transparent 60%, transparent 80%, rgba(255, 255, 255, 0.2) 80%, rgba(255, 255, 255, 0.2));
+  animation: loading-button-animation 2s linear infinite;
+}
+
+@keyframes loading-button-animation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 250px 0;
+  }
+}
